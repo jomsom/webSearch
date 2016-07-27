@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>WebSearch</title>
+    </head>
+<body>
+    <h1>Register with WebSearch</h1>
+    {% if registered %}
+        WebSearch says: <strong>Thank you for registering!</strong>
+        <a href="/websearch/">Return to the homepage.</a><br />
+    {% else %}
+        WebSearch says: <strong>Register here!</strong><br />
+        <form id="user_form" method="post" action="/websearch/register/" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+
+            <input type="submit" name="submit" value="Register" />
+        </form>
+    {% endif %}
+</body>
+</html>

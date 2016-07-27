@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head><title>WebSearch</title></head>
+    <body>
+        <h1>WebSearch Says ...</h1>
+        <!-- hello world!<strong>{{ boldmessage}}</strong><br /> -->
+
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                    <!-- href directory name could be anything, it is for unique match?? -->
+                    <li><a href = "/websearch/category/{{ category.url }}">{{category.name}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no categories exist.</strong>
+        {% endif %}
+        <a href = "/websearch/add_category/">Add New Category</a><br />
+        <a href="/websearch/register/">Register Here!</a><br /> 
+        <a href = "/websearch/about">About</a><br />
+        <img src ="{% static 'search.jpg' %}" alt = "Picture of Search"/>
+    </body>
+</html>
